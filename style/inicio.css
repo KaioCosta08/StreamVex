@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carroselFilmes img{
+    height: 50vh;
+}
+
+#box-title-main-inicio{
+    text-align: center;
+    padding-top: 15px;
+    height: 20vh;
+}
