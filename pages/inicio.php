@@ -105,19 +105,32 @@
 <!-- Inicio do modal para cadastrar filmes -->
 <div id="fundoModal_registerFilme" class="desativarModal">
 
+  <!-- Button para fechar o modal -->
   <button class="buttonFecharModal">X</button>
 
   <form action="" method="post" id="modalRegisterMovie">
+
+    <!-- Titulo do formulário -->
     <legend>Cadastre um filme ou série</legend>
-    <input type="text" name="genero" id="genero" placeholder="Titulo">
-    <input type="date" name="anoLancamento" id="anoLancamento" placeholder="Titulo">
+
+    <!-- Inputs do formulário -->
+    <input type="text" name="titulo" id="titulo" placeholder="Titulo">
+    <input type="date" name="anoLancamento" id="anoLancamento" placeholder="Ano Lançamento">
+    <input type="text" name="genero" id="genero" placeholder="Gênero">
     <textarea name="sinopse" id="sinopse" rows="5" cols="40" placeholder="Sinopse"></textarea>
-    <input type="number" name="duracao" id="duracao" placeholder="Duração">
+    <input type="text" name="indicacaoIndicativa" id="indicacaoIndicativa" placeholder="Indicação Indicativa">
+    <input type="text" name="duracao" id="duracao" placeholder="Duração">
     <input type="file" name="imagemFilme" id="imagemFilme" class="buttonFile_RegisterMovie">
 
+
+    <!-- Button para enviar o formulário -->
     <button type="submit" class="button-modal">Enviar</button>
+    
   </form>
 </div>
+<!-- Final do modal -->
+
+
     <script src="../script/modal_inicio.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
   </body>
