@@ -23,7 +23,7 @@
           <a class="nav-link active" aria-current="page" href="#">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Cadastrar Filmes/Séries</a>
+          <a class="nav-link cadastrarFilmes" href="#">Cadastrar Filmes/Séries</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,7 +32,6 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Filmes</a></li>
             <li><a class="dropdown-item" href="#">Séries</a></li>
-            <li><a class="dropdown-item" href="#">Novelas</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Configurações</a></li>
           </ul>
@@ -45,6 +44,7 @@
     </div>
   </div>
 </nav>
+<!-- NavBar do fim -->
 
 <main>
   <!-- Carrosel ilustrando algumas capas de filmes que temos -->
@@ -96,8 +96,29 @@
   <h1>Conheça nossos filmes e séries</h1>
 </div>
 
-</main>
 
+
+</main>
+<!-- Final do main -->
+
+
+<!-- Inicio do modal para cadastrar filmes -->
+<div id="fundoModal_registerFilme" class="desativarModal">
+
+  <button class="buttonFecharModal">X</button>
+
+  <form action="" method="post" id="modalRegisterMovie">
+    <legend>Cadastre um filme ou série</legend>
+    <input type="text" name="genero" id="genero" placeholder="Titulo">
+    <input type="date" name="anoLancamento" id="anoLancamento" placeholder="Titulo">
+    <textarea name="sinopse" id="sinopse" rows="5" cols="40" placeholder="Sinopse"></textarea>
+    <input type="number" name="duracao" id="duracao" placeholder="Duração">
+    <input type="file" name="imagemFilme" id="imagemFilme" class="buttonFile_RegisterMovie">
+
+    <button type="submit" class="button-modal">Enviar</button>
+  </form>
+</div>
+    <script src="../script/modal_inicio.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
   </body>
 </html>
