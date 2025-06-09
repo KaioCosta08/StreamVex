@@ -46,7 +46,7 @@
         border-radius: 10px;
         width: 100%;
         max-width: 600px;
-        height: 95vh;
+        height: 70vh;
         padding: 20px 20px;
         position: absolute;
         top: 50%;
@@ -64,7 +64,7 @@
 
     #modalRegisterMovie input {
         margin-top: 10px;
-        height: 7vh;
+        height: 5vh;
         padding: 10px 10px;
         border: none;
         outline: none;
@@ -82,7 +82,7 @@
 
     #modalRegisterMovie select {
         margin-top: 10px;
-        height: 7vh;
+        height: 5vh;
         padding: 10px 10px;
         border: none;
         outline: none;

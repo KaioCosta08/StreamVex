@@ -15,6 +15,10 @@
     box-sizing: border-box;
     }
 
+    #body_inicio{
+        background-color: #0f0f0f;
+    }
+
     .voltarInicio{
         width: 70px;
         height: 40px;
@@ -63,7 +67,7 @@
 
     #modalRegisterMovie input {
         margin-top: 10px;
-        height: 7vh;
+        height: 5vh;
         padding: 10px 10px;
         border: none;
         outline: none;
@@ -115,7 +119,7 @@
     </style>
 
 </head>
-<body>
+<body id="body_inicio">
     
     <!-- Inicio do modal para cadastrar filmes -->
 
