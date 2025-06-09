@@ -147,3 +147,50 @@
 
 </body>
 </html>
+
+<?php
+require_once "../conexaoStreamVex.php";
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $titulo = $_POST['titulo'];
+    $anoLancamento = $_POST['anoLancamento'];
+    $genero = $_POST['genero'];
+    $sinopse = $_POST['sinopse'];
+    $classificacaoIndicativa = $_POST['classificacaoIndicativa'];
+    $nomeDiretor = $_POST['nomeDiretor'];
+    $duracao = $_POST['duracao'];
+
+
+    $pastaUpload = '../images_upload/';
+    $arquivoTemporario = $_FILES['imagemFilme']['tmp_name'];
+    $nomeOriginal = $_FILES['imagemFilme']['name'];
+    $novoNome = uniqid() . '_' . $nomeOriginal;
+    $caminhoFinal = $pastaUpload . $novoNome;
+
+
+        if (move_uploaded_file($arquivoTemporario, $caminhoFinal)) {
+            $caminhoImagemBanco = 'images_upload/' . $novoNome;
+
+            $sql = "INSERT INTO filme (classificacaoIndicativa, titulo, imagem, nomeDiretor, anoLancamento, genero, sinopse, duracao) VALUES (:classificacaoIndicativa, :titulo, :imagem, :nomeDiretor, :anoLancamento, :genero, :sinopse, :duracao)";
+            $stmt = $conn->prepare($sql);
+
+
+            $stmt->bindParam(':classificacaoIndicativa', $classificacaoIndicativa);
+            $stmt->bindParam(':titulo', $titulo);
+            $stmt->bindParam(':imagem', $caminhoImagemBanco);
+            $stmt->bindParam(':nomeDiretor', $nomeDiretor);
+            $stmt->bindParam(':anoLancamento', $anoLancamento);
+            $stmt->bindParam(':genero', $genero);
+            $stmt->bindParam(':sinopse', $sinopse);
+            $stmt->bindParam(':duracao', $duracao);
+
+            if ($stmt->execute()) {
+                echo "<script>alert('Filme cadastrado com sucesso!'); window.location.href = '../pages/inicio.php';</script>";
+            } else {
+                echo "<script>alert('Erro ao cadastrar o filme.');</script>";
+            }
+        }
+    }      
+?>
