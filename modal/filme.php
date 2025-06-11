@@ -191,7 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':duracao', $duracao);
 
             if ($stmt->execute()) {
-                echo "<script>alert('Filme cadastrado com sucesso!'); window.location.href = '../pages/inicio.php';</script>";
+                echo "<script>alert('Filme cadastrado com sucesso!');</script>";
             } else {
                 echo "<script>alert('Erro ao cadastrar o filme.');</script>";
             }

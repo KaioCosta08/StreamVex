@@ -5,10 +5,201 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stream Vex</title>
-  <link rel="stylesheet" href="../style/inicio.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-  </head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #body_inicio{
+        background-color: #050505;
+      }
+
+       
+      .carroselFilmes img{
+        height: 60vh;
+      }
+
+      #box-title-main-inicio {
+        height: 15vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+      }
+
+      .buttonFecharModal{
+        width: 30px;
+        height: 30px;
+        background-color: red;
+        border-radius: 50%;
+        border: none;
+        position: relative;
+        top: 10px;
+        left: 20px;
+        color: #fff;
+        text-align: center;
+      }
+
+      #fundoModal_registerFilme{
+        z-index: 5;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #box-form-escolhaFilmeOrSerie{
+        background-color: #fff;
+        width: 100%;
+        max-width: 500px;
+        height: 22vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+      }
+
+      #box-form-escolhaFilmeOrSerie h1 {
+        text-align: center;
+        font-size: 1.9rem;
+        margin-top: 20px;
+      }
+
+      .box-buttons-escolha {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .box-buttons-escolha button {
+        width: 130px;
+        height: 50px;
+        border: none;
+        border-radius: 10px;
+        transition: 1s;
+        transform: scale(1.2);
+      }
+
+      .box-buttons-escolha button:hover {
+        background-color: #4169E1;
+        color: #fff;
+        transition: 1s;
+        transform: scale(1.2);
+      }
+
+      /* Isso irá ativar o modal de escolha de cadastro de filme ou série */
+      .ativarModal {
+        display: block;
+      }
+
+      /* Isso irá desativar o modal de escolha de cadastro de filme ou série */
+      .desativarModal {
+        display: none;
+      }
+
+      /* Modificações dos componentes do cards */
+      .fotoFilme {
+        border-radius: 10px;
+      }
+
+      /* Estilização de cards de cada filme */
+      .card-movie {
+        background-color: #800000;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        padding: 20px 20px;
+        border-radius: 15px;
+        max-width: 500px;
+        height: 96vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
+      /* Estilização de cards de cada série */
+      .card-serie {
+        background-color: #800000;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        padding: 20px 20px;
+        border-radius: 15px;
+        max-width: 500px;
+        height: 96vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
+
+      /* Caixa de tilte  */
+      .filmes-box {
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .series-box {
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .filmes-box legend{
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-style: oblique;
+        font-size: 3.1rem;
+      }
+
+      .series-box legend{
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-style: oblique;
+        font-size: 3.1rem;
+      }
+
+      .linha-red{
+        width: 250px;
+        height: 4px;
+        background-color: red;
+        margin: 0 auto;
+      }
+
+      /* Caixa onde está sendo amarzenado os cards dos filmes e séries */
+      #box-filmes {
+        gap: 30px;
+        height: 100vh;
+        padding: 10px 10px;
+        margin-top: 20px;
+        display: flex;
+        overflow: scroll;
+      }
+
+      #box-serie{
+        gap: 30px;
+        height: 100vh;
+        padding: 10px 10px;
+        margin-top: 20px;
+        display: flex;
+        overflow: scroll;
+      }
+
+  </style>
+
+</head>
 
 <body id="body_inicio">
 
@@ -52,79 +243,6 @@
   <!-- NavBar do fim -->
   
   <main>
-
-  <?php
-    require_once '../conexaoStreamVex.php';
-    
-    // Verifica se foi enviado um termo de pesquisa
-    $termoPesquisa = isset($_POST['pesquisar']) ? trim($_POST['pesquisar']) : '';
-    
-    // Se houver termo de pesquisa, mostra apenas os resultados
-    if (!empty($termoPesquisa)) {
-        $termoLike = "%$termoPesquisa%";
-        
-        // Busca em filmes
-        $sqlFilmes = "SELECT id_filme, titulo, nomeDiretor, classificacaoIndicativa, sinopse, genero, duracao, anoLancamento, imagem 
-                     FROM filme 
-                     WHERE titulo LIKE :termo OR genero LIKE :termo OR nomeDiretor LIKE :termo";
-        $stmtFilmes = $conn->prepare($sqlFilmes);
-        $stmtFilmes->bindParam(":termo", $termoLike, PDO::PARAM_STR);
-        $stmtFilmes->execute();
-        $resultadosFilmes = $stmtFilmes->fetchAll(PDO::FETCH_ASSOC);
-        
-        // Busca em séries
-        $sqlSeries = "SELECT id_serie, titulo, nomeDiretor, temporadas, classificacaoIndicativa, sinopse, genero, duracao, anoLancamento, imagem 
-                     FROM serie 
-                     WHERE titulo LIKE :termo OR genero LIKE :termo OR nomeDiretor LIKE :termo";
-        $stmtSeries = $conn->prepare($sqlSeries);
-        $stmtSeries->bindParam(":termo", $termoLike, PDO::PARAM_STR);
-        $stmtSeries->execute();
-        $resultadosSeries = $stmtSeries->fetchAll(PDO::FETCH_ASSOC);
-        
-        // Mostra os resultados da pesquisa
-        echo '<div class="box-movies">';
-        echo '<div class="box-title-movies">';
-        echo '<legend>Resultados da pesquisa para "'. htmlspecialchars($termoPesquisa) . '"</legend>';
-        echo '</div>';
-        
-        if (!empty($resultadosFilmes) || !empty($resultadosSeries)) {
-            // Mostrar filmes encontrados
-            foreach ($resultadosFilmes as $resultado) {
-                echo "<div class='card-movie'>";
-                echo "<img src='../" . htmlspecialchars($resultado['imagem']) . "' alt='Capa do filme'>";
-                echo "<h1 class='card-title'>". htmlspecialchars($resultado['titulo']) . "</h1>";
-                echo "<p><strong>Gênero: </strong>" . htmlspecialchars($resultado['genero']) . "</p>";
-                echo "<p><strong>Lançamento: </strong>" . htmlspecialchars($resultado['anoLancamento']) . "</p>";
-                echo "<p><strong>Sinopse: </strong>" . htmlspecialchars($resultado['sinopse']) . "</p>";
-                echo "<p><strong>Duração: </strong>" . htmlspecialchars($resultado['duracao']) . "</p>";
-                echo "<p><strong>Classificação: </strong>" . htmlspecialchars($resultado['classificacaoIndicativa']) . "</p>";
-                echo "<p><strong>Diretor: </strong>" . htmlspecialchars($resultado['nomeDiretor']) . "</p>";
-                echo "<button class='btn_assistirMovie'>Assistir ao filme</button>";
-                echo "<button class='btn_VerMais'>View more</button>";
-                echo "</div>";
-            }
-            
-            // Mostrar séries encontradas
-            foreach ($resultadosSeries as $resultado) {
-                echo "<div class='card-serie'>";
-                echo "<img src='../" . htmlspecialchars($resultado['imagem']) . "' alt='Capa da serie'>";
-                echo "<h1 class='card-title'>" . htmlspecialchars($resultado['titulo']) . "</h1>";
-                echo "<p><strong>Gênero: </strong>" . htmlspecialchars($resultado['genero']) . "</p>";
-                echo "<p><strong>Lançamento: </strong>" . htmlspecialchars($resultado['anoLancamento']) . "</p>";
-                echo "<p><strong>Sinopse: </strong>" . htmlspecialchars($resultado['sinopse']) . "</p>";
-                echo "<p><strong>Duração: </strong>" . htmlspecialchars($resultado['duracao']) . "</p>";
-                echo "</div>";
-            }
-        } else {
-            echo '<p class="text-center">Nenhum resultado encontrado para "'.htmlspecialchars($termoPesquisa).'"</p>';
-        }
-        echo '</div>';
-    } else {
-        // Se não houver pesquisa, mostra o conteúdo normal
-    }
-    ?>  
-
-
     <!-- Carrosel ilustrando algumas capas de filmes que temos -->
     <div id="carouselExampleCaptions" class="carousel slide carroselFilmes">
       <div class="carousel-indicators">
@@ -174,169 +292,142 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <!-- Final do carrosel -->
 
-    <!-- Inicio da pequisa -->
   
   </main>
   <!-- Final do main -->
 
-  <!-- Essa div guarda todas os filmes -->
-  <div class="box-title-movies">
-        <legend>Confira nossos filmes!</legend><br>
-    </div>
+    <main style="width: 100%; max-width: 1800px; margin: 0 auto;">
 
-  <div class="box-movies">
+        <div class="filmes-box">
+          <legend>Confira nossos filmes!</legend><br>
+          <div class="linha-red"></div>
+        </div>
 
-    <?php
-    require_once '../conexaoStreamVex.php';
+        <!-- Essa div guarda todas os filmes -->
+        <section id="box-filmes">
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_filme'])) {
-      if (isset($_POST['id_filme'])) {
-        $id = intval($_POST['id_filme']);
+          <?php
+            require_once '../conexaoStreamVex.php';
 
-        $sql = "DELETE FROM filme WHERE id_filme = :id_filme";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":id_filme", $id, PDO::PARAM_INT);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_filme'])) {
+              if (isset($_POST['id_filme'])) {
+                $id = intval($_POST['id_filme']);
 
-        if ($stmt->execute()) {
-          echo "<script>alert('Filme excluido com sucesso!');</script>";
-        } else {
-          echo "<script>alert('Erro ao excluir o filme.');</script>";
-        }
-      }
+                $sql = "DELETE FROM filme WHERE id_filme = :id_filme";
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(":id_filme", $id, PDO::PARAM_INT);
 
-    }
+                if ($stmt->execute()) {
+                  echo "<script>alert('Filme excluido com sucesso!');</script>";
+                } else {
+                  echo "<script>alert('Erro ao excluir o filme.');</script>";
+                }
+              }
 
-    $sql = "SELECT id_filme, titulo, nomeDiretor, classificacaoIndicativa, sinopse, genero, duracao, anoLancamento, imagem FROM filme";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            }
 
-    
+            $sql = "SELECT id_filme, titulo, nomeDiretor, classificacaoIndicativa, sinopse, genero, duracao, anoLancamento, imagem FROM filme";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-    foreach ($resultados as $resultado) {
-
-      echo "<div class='card-movie'>";
-      
-      echo "<img src='../" . htmlspecialchars($resultado['imagem']) . " ' alt='Capa do filme'>";
-      echo "<h1 class='card-title'> " . htmlspecialchars($resultado['titulo']) . "</h1>";
-      echo "<p>" . "<strong>Gênero: </strong>" . htmlspecialchars($resultado['genero']) . "</p>";
-      echo "<p>" . "<strong>Lançamento: </strong>" . htmlspecialchars($resultado['anoLancamento']) . "</p>";
-      echo "<p>" . "<strong>Sinopse: </strong>" . htmlspecialchars($resultado['sinopse']) . "</p>";
-      echo "<p>" . "<strong>Duração: </strong>" . htmlspecialchars($resultado['duracao']) . "</p>";
-      echo "<p>" . "<strong>Classificação: </strong>" . htmlspecialchars($resultado['classificacaoIndicativa']) . "</p>";
-      echo "<p>" . "<strong>Diretor: </strong>" . htmlspecialchars($resultado['nomeDiretor']) . "</p>";
-
-      echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAssistirFilme'>Assistir o Filme</button>";
-      echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAtualizarFilme'>Atualizar filme</button>";
-
-      // Funcionamento do button de apagar um filme
-      echo "<form method='POST' onsubmit='return confirm(\Quer mesmo excluir esse filme?\");'>";
-      echo "<input type='hidden' name='id_filme' value='" . htmlspecialchars($resultado['id_filme']) . "'>";
-      echo "<button class='btn_apagarFilme'>Apagar filme</button>";
-      echo "</form>";
-
-      // Modal com o filme 
-      echo "<div class='modal fade' id='modalAssistirFilme' tabindex='-1' aria-hidden='true'>";
-      echo "  <div class='modal-dialog modal-fullscreen'>";
-      echo "    <div class='modal-content'>";
-      echo "      <div class='modal-header'>";
-      echo "        <h5 class='modal-title'>" .  $resultado['titulo'] . "</h5>";
-      echo "        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>";
-      echo "      </div>";
-      echo "      <div class='modal-body'>";
-      echo "        <div class='ratio ratio-16x9'>";
-      echo "          <iframe src='' frameborder='0' allowfullscreen></iframe>";
-      echo "        </div>";
-      echo "      </div>";
-      echo "    </div>";
-      echo "  </div>";
-      echo "</div>";
-      // Final do modal com o filme
-
-      echo "</div>";
-    }
-    ?>
-  </div>
+            
 
 
-      <!-- Essa div guarda todas as séries -->
-      <div class="box-title-movies">
-            <legend>Confira nossas série!</legend>
-          </div><br>
-      <div class="box-serie">
-      
-      <?php
-      require_once '../conexaoStreamVex.php';
+            foreach ($resultados as $resultado) {
 
-      if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_serie'])) {
-        if (isset($_POST['id_serie'])) {
-          $id = intval($_POST['id_serie']);
+              // Card criado com php dentro do carrosel do bootstrap
 
-          $sql = "DELETE FROM serie WHERE id_serie = :id_serie";
-          $stmt = $conn->prepare($sql);
-          $stmt->bindParam(":id_serie", $id, PDO::PARAM_INT);
+              echo "<div class='card-movie'>";
+              
+              echo    "<img src='../" . htmlspecialchars($resultado['imagem']) . " ' alt='Capa do filme' class='fotoFilme'>";
+              echo    "<h1 class='card-title'> " . htmlspecialchars($resultado['titulo']) . "</h1>";
+              echo    "<p>" . "<strong>Gênero: </strong>" . htmlspecialchars($resultado['genero']) . "</p>";
+              echo    "<p>" . "<strong>Lançamento: </strong>" . htmlspecialchars($resultado['anoLancamento']) . "</p>";
+              echo    "<p>" . "<strong>Sinopse: </strong>" . htmlspecialchars($resultado['sinopse']) . "</p>";
+              echo    "<p>" . "<strong>Duração: </strong>" . htmlspecialchars($resultado['duracao']) . "</p>";
+              echo    "<p>" . "<strong>Classificação: </strong>" . htmlspecialchars($resultado['classificacaoIndicativa']) . "</p>";
+              echo    "<p>" . "<strong>Diretor: </strong>" . htmlspecialchars($resultado['nomeDiretor']) . "</p>";
 
-          if ($stmt->execute()) {
-            echo "<script>alert('Filme excluido com sucesso!');</script>";
-          } else {
-            echo "<script>alert('Erro ao excluir o filme.');</script>";
+              echo    "<button type='button' class='buttonAssistirFilme' >Assistir o Filme</button>";
+              echo    "<button type='button' class='buttonAtualizarFilme'>Atualizar filme</button>";
+
+                      // Funcionamento do button de apagar um filme
+              echo    "<form method='POST' onsubmit='return confirm('Quer mesmo excluir esse filme?');'>";
+              echo    "<input type='hidden' name='id_filme' value='" . htmlspecialchars($resultado['id_filme']) . "'>";
+              echo    "<button class='btn_apagarFilme'>Apagar filme</button>";
+              echo    "</form>";
+
+              echo "</div>";
+
+            }
+            ?>
+
+        </section>
+
+
+
+
+        <!-- Essa div guarda todas as séries -->
+        <div class="series-box">
+          <legend>Confira nossas séries!</legend>
+          <div class="linha-red"></div>
+        </div><br>
+
+        <section id="box-serie">
+          <?php
+          require_once '../conexaoStreamVex.php';
+
+          if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_serie'])) {
+            if (isset($_POST['id_serie'])) {
+              $id = intval($_POST['id_serie']);
+
+              $sql = "DELETE FROM serie WHERE id_serie = :id_serie";
+              $stmt = $conn->prepare($sql);
+              $stmt->bindParam(":id_serie", $id, PDO::PARAM_INT);
+
+              if ($stmt->execute()) {
+                echo "<script>alert('Filme excluido com sucesso!');</script>";
+              } else {
+                echo "<script>alert('Erro ao excluir o filme.');</script>";
+              }
+            }
+
           }
-        }
 
-      }
+          $sql = "SELECT id_serie, titulo, nomeDiretor, temporadas, classificacaoIndicativa, sinopse,  genero, duracao, anoLancamento, imagem FROM serie";
+          $stmt = $conn->prepare($sql);
+          $stmt->execute();
+          $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-      $sql = "SELECT id_serie, titulo, nomeDiretor, temporadas, classificacaoIndicativa, sinopse,  genero, duracao, anoLancamento, imagem FROM serie";
-      $stmt = $conn->prepare($sql);
-      $stmt->execute();
-      $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          
+          foreach ($resultados as $resultado) {
 
-      
-      foreach ($resultados as $resultado) {
+            echo "<div class='card-serie'>";
+            echo "<img src='../" . htmlspecialchars($resultado['imagem']) . " ' alt='Capa da serie'>";
+            echo "<h1 class='card-title'> " . htmlspecialchars($resultado['titulo']) . "</h1>";
+            echo "<p>" . "<strong>Gênero: </strong>" . htmlspecialchars($resultado['genero']) . "</p>";
+            echo "<p>" . "<strong>Lançamento: </strong>" . htmlspecialchars($resultado['anoLancamento']) . "</p>";
+            echo "<p>" . "<strong>Sinopse: </strong>" . htmlspecialchars($resultado['sinopse']) . "</p>";
+            echo "<p>" . "<strong>Duração: </strong>" . htmlspecialchars($resultado['duracao']) . "</p>";
+            echo "<p>" . "<strong>Classificação: </strong>" . htmlspecialchars($resultado['classificacaoIndicativa']) . "</p>";
+            echo "<p>" . "<strong>Temporadas: </strong>" . htmlspecialchars($resultado['temporadas']) . "</p>";
+            echo "<p>" . "<strong>Diretor: </strong>" . htmlspecialchars($resultado['nomeDiretor']) . "</p>";
 
-        echo "<div class='card-serie'>";
-        echo "<img src='../" . htmlspecialchars($resultado['imagem']) . " ' alt='Capa da serie'>";
-        echo "<h1 class='card-title'> " . htmlspecialchars($resultado['titulo']) . "</h1>";
-        echo "<p>" . "<strong>Gênero: </strong>" . htmlspecialchars($resultado['genero']) . "</p>";
-        echo "<p>" . "<strong>Lançamento: </strong>" . htmlspecialchars($resultado['anoLancamento']) . "</p>";
-        echo "<p>" . "<strong>Sinopse: </strong>" . htmlspecialchars($resultado['sinopse']) . "</p>";
-        echo "<p>" . "<strong>Duração: </strong>" . htmlspecialchars($resultado['duracao']) . "</p>";
-        echo "<p>" . "<strong>Classificação: </strong>" . htmlspecialchars($resultado['classificacaoIndicativa']) . "</p>";
-        echo "<p>" . "<strong>Temporadas: </strong>" . htmlspecialchars($resultado['temporadas']) . "</p>";
-        echo "<p>" . "<strong>Diretor: </strong>" . htmlspecialchars($resultado['nomeDiretor']) . "</p>";
+          echo "<button type='button' class='buttonAssistirFilme'>Assistir o Filme</button>";
+          echo "<button type='button' class='buttonAtualizarFilme'>Atualizar filme</button>";
 
-      echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAssistirFilme'>Assistir o Filme</button>";
-      echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAtualizarFilme'>Atualizar filme</button>";
+          // Funcionamento do button de apagar um filme
+          echo "<form method='POST' onsubmit='return confirm(\Quer mesmo excluir esse filme?\");'>";
+          echo "<input type='hidden' name='id_serie' value='" . htmlspecialchars($resultado['id_serie']) . "'>";
+          echo "<button class='btn_apagarFilme'>Apagar filme</button>";
+          echo "</form>";
 
-      // Funcionamento do button de apagar um filme
-      echo "<form method='POST' onsubmit='return confirm(\Quer mesmo excluir esse filme?\");'>";
-      echo "<input type='hidden' name='id_serie' value='" . htmlspecialchars($resultado['id_serie']) . "'>";
-      echo "<button class='btn_apagarFilme'>Apagar filme</button>";
-      echo "</form>";
-
-      // Modal com o filme 
-      echo "<div class='modal fade' id='modalAssistirFilme' tabindex='-1' aria-hidden='true'>";
-      echo "  <div class='modal-dialog modal-fullscreen'>";
-      echo "    <div class='modal-content'>";
-      echo "      <div class='modal-header'>";
-      echo "        <h5 class='modal-title'>" .  $resultado['titulo'] . "</h5>";
-      echo "        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Fechar'></button>";
-      echo "      </div>";
-      echo "      <div class='modal-body'>";
-      echo "        <div class='ratio ratio-16x9'>";
-      echo "          <iframe src='' frameborder='0' allowfullscreen></iframe>";
-      echo "        </div>";
-      echo "      </div>";
-      echo "    </div>";
-      echo "  </div>";
-      echo "</div>";
-      // Final do modal com o filme
-
-      }
-      ?>
-    </div>
+            }
+          ?>
+        </section>
+  </main>
 
   <!-- Modal de escolha de cadastro (Filme ou série) -->
   <div id="fundoModal_registerFilme" class="desativarModal">
