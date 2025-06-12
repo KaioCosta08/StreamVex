@@ -16,6 +16,10 @@
     box-sizing: border-box;
     }
 
+    #body_inicio{
+        background-color: #0f0f0f;
+    }
+
     .voltarInicio{
         width: 70px;
         height: 40px;
@@ -116,7 +120,7 @@
     </style>
 
 </head>
-<body>
+<body id="body_inicio">
     
     <!-- Inicio do modal para cadastrar filmes -->
 
@@ -140,25 +144,25 @@
 
       <select name="temporadas" id="temporadas" class="selectSerie">
 
-      <option value="#" selected disabled>Selecione a quantidade</option>
-      <option value="#">1 temporada</option>
-      <option value="#">2 temporada</option>
-      <option value="#">3 temporada</option>
-      <option value="#">4 temporada</option>
-      <option value="#">5 temporada</option>
-      <option value="#">6 temporada</option>
-      <option value="#">7 temporada</option>
-      <option value="#">8 temporada</option>
-      <option value="#">9 temporada</option>
-      <option value="#">10 temporada</option>
-      <option value="#">11 temporada</option>
-      <option value="#">12 temporada</option>
-      <option value="#">13 temporada</option>
-      <option value="#">14 temporada</option>
-      <option value="#">15 temporada</option>
-      <option value="#">16 temporada</option>
-      <option value="#">17 temporada</option>
-      <option value="#">18 temporada</option>
+        <option value="#" selected disabled>Temporadas</option>
+        <option value="1 temporada">1 temporada</option>
+        <option value="2 temporada">2 temporada</option>
+        <option value="3 temporada">3 temporada</option>
+        <option value="4 temporada">4 temporada</option>
+        <option value="5 temporada">5 temporada</option>
+        <option value="6 temporada">6 temporada</option>
+        <option value="7 temporada">7 temporada</option>
+        <option value="8 temporada">8 temporada</option>
+        <option value="9 temporada">9 temporada</option>
+        <option value="10 temporada">10 temporada</option>
+        <option value="11 temporada">11 temporada</option>
+        <option value="12 temporada">12 temporada</option>
+        <option value="13 temporada">13 temporada</option>
+        <option value="14 temporada">14 temporada</option>
+        <option value="15 temporada">15 temporada</option>
+        <option value="16 temporada">16 temporada</option>
+        <option value="17 temporada">17 temporada</option>
+        <option value="18 temporada">18 temporada</option>
       </select>
 
       <input type="text" name="duracao" id="duracao" placeholder="Duração">

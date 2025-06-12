@@ -108,40 +108,6 @@
         display: none;
       }
 
-      /* Modificações dos componentes do cards */
-      .fotoFilme {
-        border-radius: 10px;
-      }
-
-      /* Estilização de cards de cada filme */
-      .card-movie {
-        background-color: #800000;
-        font-family: 'Poppins', sans-serif;
-        color: #fff;
-        padding: 20px 20px;
-        border-radius: 15px;
-        max-width: 500px;
-        height: 96vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-      }
-
-      /* Estilização de cards de cada série */
-      .card-serie {
-        background-color: #800000;
-        font-family: 'Poppins', sans-serif;
-        color: #fff;
-        padding: 20px 20px;
-        border-radius: 15px;
-        max-width: 500px;
-        height: 96vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-      }
-
-
       /* Caixa de tilte  */
       .filmes-box {
         margin-top: 10px;
@@ -178,24 +144,115 @@
         margin: 0 auto;
       }
 
-      /* Caixa onde está sendo amarzenado os cards dos filmes e séries */
-      #box-filmes {
-        gap: 30px;
-        height: 100vh;
-        padding: 10px 10px;
-        margin-top: 20px;
-        display: flex;
-        overflow: scroll;
-      }
+      /* Imagem do filme/série */
+  .fotoFilme {
+    width: 100%;
+    height: 300px; /* Tamanho fixo para uniformidade */
+    object-fit: cover;
+    border-radius: 10px;
+  }
 
-      #box-serie{
-        gap: 30px;
-        height: 100vh;
-        padding: 10px 10px;
-        margin-top: 20px;
-        display: flex;
-        overflow: scroll;
-      }
+  /* Card base */
+  .card-movie,
+  .card-serie {
+    background-color: #800000;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    min-height: 750px; /* Altura fixa para consistência */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espaça melhor o conteúdo */
+    box-sizing: border-box;
+  }
+
+  /* Título do card */
+  .card-title {
+    font-size: 1.8rem;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  /* Texto dos detalhes */
+  .card-movie p,
+  .card-serie p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 4px 0;
+  }
+
+  /* Botões */
+  .buttonAssistirFilme,
+  .buttonAtualizarFilme,
+  .btn_apagarFilme {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.2s ease;
+  }
+
+  .buttonAssistirFilme {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .buttonAssistirFilme:hover {
+    background-color: #218838;
+  }
+
+  .buttonAtualizarFilme {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .buttonAtualizarFilme:hover {
+    background-color: #0056b3;
+  }
+
+  .btn_apagarFilme {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  .btn_apagarFilme:hover {
+    background-color: #c82333;
+  }
+
+  /* Corrige form para alinhar botão */
+  form {
+    margin: 0;
+  }
+
+  /* Containers das seções */
+  #box-filmes,
+  #box-serie {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Scroll horizontal estilizado (opcional) */
+  #box-filmes::-webkit-scrollbar,
+  #box-serie::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  #box-filmes::-webkit-scrollbar-thumb,
+  #box-serie::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+
 
   </style>
 
